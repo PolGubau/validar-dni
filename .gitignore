@@ -1,3 +1,14 @@
 node_modules/
 dist/
 coverage/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Build artifacts
+*.tsbuildinfo

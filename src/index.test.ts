@@ -41,10 +41,19 @@ describe("parseDni", () => {
     expect(result.expectedControl).toBe("L");
   });
 
-  it("returns CIF type for valid CIF", () => {
+  it("returns CIF type for valid CIF with digit control", () => {
     const result = parseDni("A58818501");
     expect(result.isValid).toBe(true);
     expect(result.type).toBe("CIF");
+    expect(result.expectedControl).toBe("1");
+  });
+
+  it("returns CIF type for valid CIF with letter control", () => {
+    // A5881850A: same body as A58818501, control=1 → letter='A'
+    const result = parseDni("A5881850A");
+    expect(result.isValid).toBe(true);
+    expect(result.type).toBe("CIF");
+    expect(result.expectedControl).toBe("A");
   });
 
   it("returns NIE_ESPECIAL type for T-prefix NIE", () => {

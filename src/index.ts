@@ -32,7 +32,12 @@ export function parseDni(input: string): DniResult {
   }
 
   const validator = VALIDATORS.find((v) => v.matches(normalized));
-  return validator?.validate(normalized) ?? { isValid: false, type: null, normalized };
+
+  if (!validator) {
+    return { isValid: false, type: null, normalized };
+  }
+  // v8 ignore next — defensive fallback; all 9-char patterns are covered by VALIDATORS
+  return validator.validate(normalized);
 }
 
 /**

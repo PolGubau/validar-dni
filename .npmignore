@@ -1,0 +1,10 @@
+src/
+coverage/
+.github/
+*.test.ts
+*.config.ts
+biome.json
+tsconfig.json
+.gitignore
+CHANGELOG.md
+

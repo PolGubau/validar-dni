@@ -1,5 +1,5 @@
 {
-	"name": "validar-dni",
+	"name": "@polgubau/validar-dni",
 	"version": "1.0.0",
 	"description": "Lightweight TypeScript library to validate Spanish DNI, NIE and CIF identifiers",
 	"keywords": [
