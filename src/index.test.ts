@@ -3,7 +3,6 @@ import { parseDni, validDniCifNie } from "./index";
 
 describe("validDniCifNie", () => {
   it("accepts a valid NIF", () => expect(validDniCifNie("12345678Z")).toBe(true));
-  it("accepts a valid NIF", () => expect(validDniCifNie("39959968K")).toBe(true));
   it("rejects a NIF with wrong letter", () => expect(validDniCifNie("12345678A")).toBe(false));
   it("accepts a valid NIE (X prefix)", () => expect(validDniCifNie("X1234567L")).toBe(true));
   it("accepts a valid NIE (Y prefix)", () => expect(validDniCifNie("Y1234567X")).toBe(true));

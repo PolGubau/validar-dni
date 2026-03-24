@@ -31,7 +31,7 @@ yarn add @polgubau/validar-dni
 ## Quick start
 
 ```ts
-import { validDniCifNie, parseDni } from "validar-dni";
+import { validDniCifNie, parseDni } from "@polgubau/validar-dni";
 
 // Boolean check
 validDniCifNie("12345678Z"); // true
@@ -122,9 +122,9 @@ parseDni("INVALID!!");
 Import only the validator you need:
 
 ```ts
-import { nifValidator } from "validar-dni/nif";
-import { nieValidator } from "validar-dni/nie";
-import { cifValidator } from "validar-dni/cif";
+import { nifValidator } from "@polgubau/validar-dni/nif";
+import { nieValidator } from "@polgubau/validar-dni/nie";
+import { cifValidator } from "@polgubau/validar-dni/cif";
 
 nifValidator.matches("12345678Z"); // true
 nifValidator.validate("12345678Z");
