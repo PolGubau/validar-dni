@@ -1,7 +1,7 @@
-# validar-dni
+# @polgubau/validar-dni
 
-[![npm version](https://img.shields.io/npm/v/validar-dni?color=blue&label=npm)](https://www.npmjs.com/package/validar-dni)
-[![bundle size](https://img.shields.io/bundlephobia/minzip/validar-dni?label=minzip)](https://bundlephobia.com/package/validar-dni)
+[![npm version](https://img.shields.io/npm/v/@polgubau/validar-dni?color=blue&label=npm)](https://www.npmjs.com/package/@polgubau/validar-dni)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/@polgubau/validar-dni?label=minzip)](https://bundlephobia.com/package/@polgubau/validar-dni)
 [![coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)](https://github.com/PolGubau/validar-dni)
 [![license](https://img.shields.io/github/license/PolGubau/validar-dni)](./LICENSE)
 [![CI](https://github.com/PolGubau/validar-dni/actions/workflows/publish.yml/badge.svg)](https://github.com/PolGubau/validar-dni/actions)
@@ -19,11 +19,11 @@ Lightweight TypeScript library to validate Spanish **DNI (NIF)**, **NIE** and **
 ## Installation
 
 ```bash
-npm install validar-dni
+npm install @polgubau/validar-dni
 # or
-pnpm add validar-dni
+pnpm add @polgubau/validar-dni
 # or
-yarn add validar-dni
+yarn add @polgubau/validar-dni
 ```
 
 ---
@@ -132,6 +132,14 @@ nifValidator.validate("12345678Z");
 ```
 
 Each subpath is **~115 bytes** minified vs ~1 KB for the full bundle.
+
+---
+
+## License
+
+MIT © [Pol Gubau Amores](https://github.com/PolGubau)
+
+This library is free to use, modify and distribute. **Attribution is required** — you must keep the copyright notice in any copy or substantial portion of the software (the MIT license handles this automatically).
 
 ---
 
