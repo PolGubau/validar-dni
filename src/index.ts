@@ -15,18 +15,21 @@ function nifControl(digits: string): string {
   return CONTROL_LETTERS[parseInt(digits, 10) % 23];
 }
 
-function cifControl(dni: string): string {
-  let sumaPar = 0;
-  let sumaImpar = 0;
+const CIF_CONTROL_LETTERS = "JABCDEFGHI"; // index 0→J, 1→A, …, 9→I
 
-  for (let i = 1; i <= 6; i += 2) sumaPar += parseInt(dni[i], 10);
-  for (let i = 0; i <= 6; i += 2) {
+/** Returns { letter, digit } control characters for a CIF */
+function cifControlChars(dni: string): { letter: string; digit: string } {
+  let sumaPar = 0;    // sum of digits at positions 3,5,7 (0-based: 2,4,6)
+  let sumaImpar = 0;  // Luhn-doubled sum of digits at positions 2,4,6,8 (0-based: 1,3,5,7)
+
+  for (let i = 2; i <= 6; i += 2) sumaPar += parseInt(dni[i], 10);
+  for (let i = 1; i <= 7; i += 2) {
     const doble = parseInt(dni[i], 10) * 2;
     sumaImpar += doble > 9 ? doble - 9 : doble;
   }
 
   const control = (10 - ((sumaPar + sumaImpar) % 10)) % 10;
-  return String.fromCharCode(64 + control); // returns letter; digit = control.toString()
+  return { letter: CIF_CONTROL_LETTERS[control], digit: control.toString() };
 }
 
 /**
@@ -69,12 +72,7 @@ export function parseDni(dni: string): DniResult {
   // CIF — org letter + 7 digits + letter or digit
   if (RE_CIF.test(normalized)) {
     const controlChar = normalized[8];
-    const expectedLetter = cifControl(normalized);
-    const expectedDigit = ((10 - (([...normalized.slice(1, 8)].reduce((acc, c, i) => {
-      const n = parseInt(c, 10);
-      if (i % 2 === 0) { const d = n * 2; return acc + (d > 9 ? d - 9 : d); }
-      return acc + n;
-    }, 0)) % 10)) % 10).toString();
+    const { letter: expectedLetter, digit: expectedDigit } = cifControlChars(normalized);
 
     const isLetter = /[A-Z]/.test(controlChar);
     const isValid = isLetter
