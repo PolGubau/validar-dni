@@ -16,4 +16,3 @@ export interface Validator {
   matches(normalized: string): boolean;
   validate(normalized: string): DniResult;
 }
-

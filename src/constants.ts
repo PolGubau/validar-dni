@@ -13,4 +13,3 @@ export const NIE_PREFIX_MAP: Readonly<Record<string, string>> = {
 
 /** Basic 9-char alphanumeric sanity check (applied before type-specific regex) */
 export const RE_VALID_FORMAT = /^[A-Z0-9]{9}$/;
-

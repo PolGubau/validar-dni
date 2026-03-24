@@ -5,8 +5,8 @@ const RE_CIF = /^[ABCDEFGHJNPQRSUVW][0-9]{7}[A-Z0-9]$/;
 const RE_LETTER = /[A-Z]/;
 
 function computeControlChars(s: string): { letter: string; digit: string } {
-  let sumEven = 0;   // positions 3,5,7 of the full id (0-based: 2,4,6)
-  let sumOdd = 0;    // positions 2,4,6,8 of the full id (0-based: 1,3,5,7), Luhn-doubled
+  let sumEven = 0; // positions 3,5,7 of the full id (0-based: 2,4,6)
+  let sumOdd = 0; // positions 2,4,6,8 of the full id (0-based: 1,3,5,7), Luhn-doubled
 
   for (let i = 2; i <= 6; i += 2) sumEven += parseInt(s[i], 10);
   for (let i = 1; i <= 7; i += 2) {
@@ -35,4 +35,3 @@ export const cifValidator: Validator = {
     };
   },
 };
-

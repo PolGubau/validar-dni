@@ -1,35 +1,68 @@
 {
-  "name": "validar-dni",
-  "version": "1.0.0",
-  "description": "Lightweight TypeScript library to validate Spanish DNI, NIE and CIF identifiers",
-  "keywords": ["dni", "nie", "cif", "nif", "spain", "validate", "spanish", "identifier"],
-  "author": "Pol Gubau Amores",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/PolGubau/validar-dni"
-  },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    }
-  },
-  "files": ["dist"],
-  "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts --clean",
-    "dev": "tsup src/index.ts --format esm,cjs --dts --watch",
-    "test": "vitest run",
-    "test:watch": "vitest"
-  },
-  "devDependencies": {
-    "tsup": "^8.0.0",
-    "typescript": "^5.4.0",
-    "vitest": "^1.6.0"
-  }
+	"name": "validar-dni",
+	"version": "1.0.0",
+	"description": "Lightweight TypeScript library to validate Spanish DNI, NIE and CIF identifiers",
+	"keywords": [
+		"dni",
+		"nie",
+		"cif",
+		"nif",
+		"spain",
+		"validate",
+		"spanish",
+		"identifier"
+	],
+	"author": "Pol Gubau Amores",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/PolGubau/validar-dni"
+	},
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js",
+			"require": "./dist/index.cjs"
+		},
+		"./nif": {
+			"types": "./dist/validators/nif.d.ts",
+			"import": "./dist/validators/nif.js",
+			"require": "./dist/validators/nif.cjs"
+		},
+		"./nie": {
+			"types": "./dist/validators/nie.d.ts",
+			"import": "./dist/validators/nie.js",
+			"require": "./dist/validators/nie.cjs"
+		},
+		"./cif": {
+			"types": "./dist/validators/cif.d.ts",
+			"import": "./dist/validators/cif.js",
+			"require": "./dist/validators/cif.cjs"
+		}
+	},
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "tsup src/index.ts src/validators/nif.ts src/validators/nie.ts src/validators/cif.ts --format esm,cjs --dts --clean --metafile",
+		"dev": "tsup src/index.ts --format esm,cjs --dts --watch",
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"test:coverage": "vitest run --coverage",
+		"lint": "biome lint ./src",
+		"lint:fix": "biome lint --write ./src",
+		"format": "biome format --write ./src",
+		"check": "biome check ./src",
+		"check:fix": "biome check --write ./src"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.4.8",
+		"@vitest/coverage-v8": "^4.1.1",
+		"tsup": "^8.0.0",
+		"typescript": "^5.4.0",
+		"vitest": "^4.1.1"
+	}
 }
-

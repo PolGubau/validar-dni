@@ -1,5 +1,5 @@
-import { describe, it, expect } from "vitest";
-import { validDniCifNie, parseDni } from "./index";
+import { describe, expect, it } from "vitest";
+import { parseDni, validDniCifNie } from "./index";
 
 describe("validDniCifNie", () => {
   it("accepts a valid NIF", () => expect(validDniCifNie("12345678Z")).toBe(true));
@@ -69,4 +69,3 @@ describe("parseDni", () => {
     expect(parseDni("  12345678Z  ").isValid).toBe(true);
   });
 });
-

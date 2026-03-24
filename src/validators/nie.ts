@@ -1,4 +1,4 @@
-import { NIF_CONTROL_LETTERS, NIE_PREFIX_MAP } from "../constants";
+import { NIE_PREFIX_MAP, NIF_CONTROL_LETTERS } from "../constants";
 import type { DniResult, Validator } from "../types";
 
 const RE_NIE = /^[XYZ][0-9]{7}[A-Z]$/;
@@ -21,4 +21,3 @@ export const nieValidator: Validator = {
     };
   },
 };
-

@@ -1,9 +1,9 @@
 import { RE_VALID_FORMAT } from "./constants";
 import type { DniResult, DocumentType, Validator } from "./types";
-import { nifValidator } from "./validators/nif";
-import { nieValidator } from "./validators/nie";
 import { cifValidator } from "./validators/cif";
+import { nieValidator } from "./validators/nie";
 import { nieEspecialValidator } from "./validators/nie-especial";
+import { nifValidator } from "./validators/nif";
 
 export type { DniResult, DocumentType, Validator };
 
@@ -44,4 +44,3 @@ export function parseDni(input: string): DniResult {
 export function validDniCifNie(input: string): boolean {
   return parseDni(input).isValid;
 }
-
