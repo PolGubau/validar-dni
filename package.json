@@ -43,6 +43,9 @@
 			"require": "./dist/validators/cif.cjs"
 		}
 	},
+	"publishConfig": {
+		"access": "public"
+	},
 	"files": [
 		"dist"
 	],
