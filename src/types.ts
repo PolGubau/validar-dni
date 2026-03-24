@@ -7,7 +7,13 @@ export interface DniResult {
   type: DocumentType | null;
   /** Normalized (uppercased, trimmed) input */
   normalized: string;
-  /** Expected control character (letter or digit). Only present for NIF and NIE */
+  /** Expected control character (letter or digit). Present for NIF, NIE and CIF */
   expectedControl?: string;
+}
+
+/** Contract every document-type validator must satisfy */
+export interface Validator {
+  matches(normalized: string): boolean;
+  validate(normalized: string): DniResult;
 }
 
